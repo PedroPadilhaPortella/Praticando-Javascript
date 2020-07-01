@@ -6,4 +6,4 @@ function escada(altura){
     }
     return lista;
   }
-console.log(escada(7));
+console.log(escada(7)) //constroi uma escada de 7 degraus
