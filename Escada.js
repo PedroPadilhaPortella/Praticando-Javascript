@@ -6,5 +6,4 @@ function escada(altura){
     }
     return lista;
   }
-  console.log(escada(5));
-  
+console.log(escada(7));
