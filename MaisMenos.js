@@ -19,4 +19,8 @@ function maisMenos (valores) {
     return resultado;
 }
 
-maisMenos([1, 2, 0, -1]);
+console.log(maisMenos([1, 2, 0, -1]))
+
+console.log(maisMenos([3, 5, 0, 0, -3, -5, -1, 0]))
+
+console.log(maisMenos([1, 2, 0, 0, 0, 0, 0, 7]))
