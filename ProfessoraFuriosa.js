@@ -19,5 +19,5 @@ function aberturas(dias, minimo) {
 console.log(acontece([10, -5, 3, 0], 2)) //true
 console.log(acontece([10, -5, 3, 0], 3)) //false
 
-console.log(aberturas([[10, -5, 3, 0], [10, -5, 3, 0]], 2) ? 'Vai ter aula nesse dia' : 'não vai ter aula') // [true, true]
-console.log(aberturas([[10, -5, 3, 0], [10, -5, 3, 0]], 3) ? ) // [false, false]
+console.log(aberturas([[10, -5, 3, 0], [10, -5, 3, 0]], 2)) // [true, true]
+console.log(aberturas([[10, -5, 3, 0], [10, -5, 3, 0]], 3)) // [false, false]
