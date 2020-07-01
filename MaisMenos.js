@@ -1,3 +1,5 @@
+//Essa função retorna um array com a porcentagem de valores positivos, negativos e nulos do array
+
 function maisMenos (valores) {
     var positivos = 0;
     var zeros = 0;
