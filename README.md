@@ -1,5 +1,7 @@
 # Javascript Desafios De Lógica
 
+### Este Repositório contém um PDF com 40 exercícios de Javascript além destes 6 desafios
+
 ## Desafio - Professora Furiosa
 Uma professora de programação, cansada de que os estudantes cheguem tarde, decidiu que vai cancelar a aula se há poucos presentes.  
 Ela representa a entrada dos estudantes como um array de tempos de chegada tarde, em minutos. Por exemplo, se um estudante chegou 10 minutos atrasado, outro 5 minutos antes da hora, outro com 3 minutos de atraso, e outro pontual, poderá representar assim:
