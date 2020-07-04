@@ -5,16 +5,21 @@ retornará o valor da aplicação sob o regime de juros compostos*/
 function juros(capitalInicial, taxa, tempo){
     let jurosCompostos = JurosCompostos(capitalInicial, taxa, tempo);
     let jurosSimples = JurosSimples(capitalInicial, taxa, tempo);
-    console.log(`Montante à Juros Simples: R$ ${jurosSimples}\nMontante à Juros Compostos: R$ ${jurosCompostos}`);
+    console.log(`Calculo do capital de ${capitalInicial} à taxa de ${taxa} ao mês por ${tempo} meses:`);
+    console.log(`Montante à Juros Simples: R$ ${jurosSimples.toFixed(2)}`);
+    console.log(`Montante à Juros Compostos: R$ ${jurosCompostos.toFixed(2)}`);
+    console.log("---------------------------------------")
 }
 
-function JurosSimples(capitalInicial, taxa, tempo){
-    let montante = capitalInicial + capitalInicial * (1 + taxa * tempo)
+function JurosSimples(capital, tx, t){
+    let montante = capital + (capital *  (tx/100) * t)
     return montante;
 }
-function JurosCompostos(capitalInicial, taxa, tempo){
-    let montante = capitalInicial + capitalInicial * (1 * Math.pow(taxa, tempo))
+function JurosCompostos(capital, tx, t){
+    let montante = capital * Math.pow(1 + (tx/100), t)
     return montante;
 }
 
-juros(1000, 0.1, 12)
+juros(300, 1, 12)
+juros(1000, 10, 12)
+juros(600, 3, 1)
