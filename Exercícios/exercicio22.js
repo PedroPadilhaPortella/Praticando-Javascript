@@ -5,7 +5,7 @@ compostos). O retorno deve ser o valor a ser pago para o respectivo mês escolhi
 
 function pagarAnuidade(mes, valor){
     if(mes == 1){
-        return `Valor a ser pago no mês ${mes}: ${valor}`
+        return `Valor a ser pago no mês ${mes}: ${valor.toFixed(2)}`
     }
     return `Valor a ser pago no mês ${mes}: ${(valor * Math.pow(1.05, mes - 1)).toFixed(2)}`
 }
