@@ -1,0 +1,18 @@
+	/*CSS*/
+
+div{
+  padding:30px;
+  width: 30px;
+}
+.aqua{
+  background-color: aqua;
+}
+
+section{
+  height: 60px;
+  width: 40px;
+}
+
+.red{
+  background-color: red;
+}

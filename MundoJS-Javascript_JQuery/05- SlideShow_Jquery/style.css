@@ -1,0 +1,26 @@
+	/*CSS*/
+
+body{
+background-color: gray;
+text-align: center;
+}
+
+.imagens{
+height: 200px;
+width: 300px;
+padding: 10px;
+border-radius: 20px
+}
+
+.bt{
+background-color: white;
+color: red;
+}
+
+div{
+height: 210px;
+}
+
+h1{
+color:#55ffff;
+}
