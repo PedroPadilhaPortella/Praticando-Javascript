@@ -25,7 +25,7 @@ function obterEndereco(idUsuario, callback) {
     setTimeout(function () {
         return callback(null, {
             rua: "Rua dos bobos",
-            numero: 0,
+            numero: 30,
         }, 2000);
     });
 }
