@@ -1,0 +1,125 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<style type="text/css">
+		.gameboard tbody tr td {
+			height: 100px;
+			width: 100px;
+			background-color: white
+		}
+	</style>
+</head>
+
+<body>
+	<table class="gameboard" border="2">
+		<tr>
+			<td id="0"></td>
+			<td id="1"></td>
+			<td id="2"></td>
+		</tr>
+		<tr>
+			<td id="3"> </td>
+			<td id="4"> </td>
+			<td id="5"> </td>
+		</tr>
+		<tr>
+			<td id="6"></td>
+			<td id="7"> </td>
+			<td id="8"> </td>
+		</tr>
+	</table>
+
+	<script src="jquery.min.js"></script>
+	<script src="tabuleiro.js"></script>
+	<script src="jogador.js"></script>
+
+	<script>
+		$(function () {
+
+			var tabuleiro = new Tabuleiro();
+			var jogador = new Jogador();
+
+			$(".gameboard tbody tr td").click(function () {
+
+				tabuleiro.SelecionarJogada($(this).attr('id'));
+
+				if (tabuleiro.ValidarJogada()) {
+
+					tabuleiro.ConfirmarJogada("X");
+					tabuleiro.PintarBlocoSelecionado($(this), 'black');
+					tabuleiro.SomarTurno();
+
+					//VERIFICA GANHADOR				
+					if (tabuleiro.ExisteGanhador("X")) {
+
+						alert("GANHADOR: jogador HUMANO");
+						return false;
+					}
+
+					if (tabuleiro.turno === 5) {
+
+						alert("Empate!!");
+						return false;
+					}
+
+					//VEZ DA MAQUINA JOGAR
+					//------------------------------------------------------------
+					if (tabuleiro.turno < 2 && tabuleiro.turno < 9) {
+
+						var num = jogador.JogadaAleatoria();
+						tabuleiro.SelecionarJogada(num);
+
+						while (!tabuleiro.ValidarJogada()) {
+
+							num = jogador.JogadaAleatoria();
+							tabuleiro.SelecionarJogada(num);
+						}
+
+						$("#" + parseInt(num)).css('background-color', 'orange');
+						tabuleiro.ConfirmarJogada("O");
+					} else {
+
+						//Retorno -> 0 -> 8, jogar em alguma dessas posições
+						//Retorno -> 100 -> não possui perigo
+						var retorno = jogador.MinMax(tabuleiro.ganhador, tabuleiro.jogadas, "O");
+						if (retorno === 100) {
+
+							var retorno = jogador.MinMax(tabuleiro.ganhador, tabuleiro.jogadas, "X");
+							if (retorno === 100) {
+
+								var num = jogador.JogadaAleatoria();
+								tabuleiro.SelecionarJogada(num);
+
+								while (!tabuleiro.ValidarJogada()) {
+
+									num = jogador.JogadaAleatoria();
+									tabuleiro.SelecionarJogada(num);
+								}
+
+								$("#" + parseInt(num)).css('background-color', 'orange');
+								tabuleiro.ConfirmarJogada("O");
+							}
+						}
+
+						tabuleiro.SelecionarJogada(retorno);
+						$("#" + parseInt(retorno)).css('background-color', 'orange');
+						tabuleiro.ConfirmarJogada("O");
+					}
+					//-------------------------------------------------------------				
+
+					if (tabuleiro.ExisteGanhador("O")) {
+
+						alert("GANHADOR: jogador MAQUINA");
+						return false;
+						//ZERAR JOGO
+					}
+				} else {
+					alert("Não é possível realizar essa jogada!!!");
+				}
+			});
+		});
+	</script>
+</body>
+
+
+</html>
