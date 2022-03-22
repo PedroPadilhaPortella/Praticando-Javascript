@@ -45,7 +45,7 @@ Jogador.prototype.MinMax = function (ganhador, jogadas, jogador) {
 			for (z = 0; z < arrM.length; z++) {
 
 				if (jogadas[arrM[z]] === 0) {
-					//SE O USUARIO FOR GANHAR, ENTÂO EU EVITO!					
+					//SE O USUARIO FOR GANHAR, ENTAO EU EVITO!					
 					return arrM[z];
 				}
 			}
